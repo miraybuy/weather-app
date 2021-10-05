@@ -23,6 +23,21 @@ function timeNday() {
 }
 timeNday();
 
+function formatTime(timestamp) {
+  let time = new Date(timestamp);
+
+  let hours = time.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = time.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function showWeather(response) {
   document.querySelector("#currentLocation").innerHTML = response.data.name;
   document.querySelector("#currentDegree").innerHTML = `${Math.round(
@@ -46,8 +61,12 @@ function showWeather(response) {
   document.querySelector(
     "#precipitation"
   ).innerHTML = `${response.data.precipitation}`;
-  document.querySelector("#sunrise").innerHTML = response.data.city.sun.rise;
-  document.querySelector("#sunset").innerHTML = response.data.city.sun.set;
+  document.querySelector("#sunrise").innerHTML = formatTime(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = formatTime(
+    response.data.sys.sunset * 1000
+  );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather.description;
 }
