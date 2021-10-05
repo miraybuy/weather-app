@@ -1,4 +1,94 @@
-h1 {
+.container {
+  display: block;
+  max-width: 490px;
+  margin: 50px auto;
+  border-radius: 20px;
+  background: rgb(212, 236, 221, 0.7);
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: rgb(17, 32, 49);
+}
+
+.citySearch {
+  margin: 15px;
+}
+#locationButton {
+  color: white;
+  background-color: rgb(113, 111, 129);
+  border: 0;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.searchButton {
+  background-color: rgb(21, 45, 53);
+  border: 0;
+}
+.searchButton:hover {
+  background-color: rgb(113, 111, 129);
+  transition: all 200ms ease-in-out;
+}
+
+.locationArrow {
+  font-size: 15px;
+}
+.dailyForecast {
   text-align: center;
-  color: brown;
+  padding: 40px 0;
+}
+.day1,
+.day2,
+.day3,
+.day4,
+.day5 {
+  background-color: rgb(123, 119, 255, 0.6);
+  margin: 5px;
+  border-radius: 20px;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 2px;
+}
+li {
+  padding: 5px;
+}
+h3 {
+  font-size: 20px;
+}
+.forecast-low,
+#todaysLow {
+  color: rgb(52, 91, 99);
+}
+.sun-icon,
+.cloud-rain-icon {
+  padding: 10px 10px;
+  font-size: 45px;
+}
+.partially-cloud {
+  font-size: 70px;
+}
+.forecast-day {
+  text-align: right;
+  padding: 10px 10px 0 0;
+  font-size: 23px;
+}
+.sun-icon,
+.partially-cloud {
+  color: rgb(255, 201, 60);
+}
+.cloud-rain-icon {
+  color: rgb(113, 111, 129);
+}
+#weatherDescription {
+  font-size: 15px;
+  padding: 5px 0;
+}
+
+.forecast-high,
+.forecast-low {
+  font-size: 20px;
+}
+#currentTime {
+  font-size: 20px;
 }
