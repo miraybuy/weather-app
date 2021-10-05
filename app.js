@@ -68,7 +68,7 @@ function showWeather(response) {
     response.data.sys.sunset * 1000
   );
   document.querySelector("#weatherDescription").innerHTML =
-    response.data.weather.description;
+    response.data.weather[0].description;
 }
 
 function searchCity(city) {
