@@ -59,8 +59,8 @@ function showWeather(response) {
     response.data.wind.speed
   )}km/hr`;
   document.querySelector(
-    "#precipitation"
-  ).innerHTML = `${response.data.precipitation}`;
+    "#pressure"
+  ).innerHTML = `${response.data.main.pressure} hPa  `;
   document.querySelector("#sunrise").innerHTML = formatTime(
     response.data.sys.sunrise * 1000
   );
