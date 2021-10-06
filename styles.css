@@ -1,9 +1,25 @@
-.container {
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.app-wrapper {
   display: block;
   max-width: 490px;
   margin: 50px auto;
-  border-radius: 20px;
-  background: rgb(212, 236, 221, 0.7);
+}
+.weather-app {
+  display: block;
+  padding: 20px;
+  margin: 5px auto;
+  border-radius: 15px;
+  background: rgb(212, 236, 221, 0.8);
   background-size: cover;
   font-family: "Poppins", sans-serif;
   color: rgb(17, 32, 49);
@@ -14,16 +30,16 @@
 }
 #locationButton {
   color: white;
-  background-color: rgb(113, 111, 129);
+  background-color: rgb(123, 119, 255);
   border: 0;
   border-radius: 5px;
-  font-size: 18px;
 }
 .searchButton {
   background-color: rgb(21, 45, 53);
   border: 0;
 }
-.searchButton:hover {
+.searchButton:hover,
+#locationButton:hover {
   background-color: rgb(113, 111, 129);
   transition: all 200ms ease-in-out;
 }
@@ -42,7 +58,7 @@
 .day5 {
   background-color: rgb(123, 119, 255, 0.6);
   margin: 5px;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 0;
 }
 ul {

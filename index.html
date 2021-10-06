@@ -19,7 +19,12 @@
 </head>
 
 <body>
-  <div class="container">
+  <video id="background-video" autoplay loop muted poster="Cloudy sky.mp4">
+  <source src="Cloudy sky.mp4" type="video/mp4">
+</video>
+<div class="container">
+  <div class="app-wrapper">
+    <div class="weather-app">
    
     <div class="row ">
 
@@ -31,7 +36,7 @@
           <button type="submit" class="btn btn-primary searchButton">
             <i class="fas fa-search-location location-icon"></i>
           </button>
-          <button type="submit" id="locationButton">
+          <button type="submit" class="btn btn-primary" id="locationButton">
             <i class="fas fa-street-view"></i>
           </button>
        </div>
@@ -151,10 +156,13 @@
       
     </div>
   </div>
-  <footer>
+ </div> 
+ <small>
     <a href="https://github.com/miraybuy/weather-app" target="_blank">Open-source code</a> by Miray Büyükkaray
-  </footer>
+</small>
   </div>
+  
+</div>
   <script src="app.js"></script>
 </body>
 </html>
