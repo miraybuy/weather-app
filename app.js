@@ -129,8 +129,8 @@ function displayFahrenheitTemperature(event) {
 
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
-  todaysHigh.innerHTML = `${Math.round(fahrenheitHigh)}°F`;
-  todaysLow.innerHTML = `${Math.round(fahrenheitLow)}°F`;
+  todaysHigh.innerHTML = `H:${Math.round(fahrenheitHigh)}°F`;
+  todaysLow.innerHTML = `L:${Math.round(fahrenheitLow)}°F`;
 }
 
 function displayCelsiusTemperature(event) {
@@ -142,9 +142,9 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#currentDegree");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   let todaysLow = document.querySelector("#todaysLow");
-  todaysLow.innerHTML = `${Math.round(celciusTempLow)}°C`;
+  todaysLow.innerHTML = `L:${Math.round(celciusTempLow)}°C`;
   let todaysHigh = document.querySelector("#todaysHigh");
-  todaysHigh.innerHTML = `${Math.round(celciusTempHigh)}°C`;
+  todaysHigh.innerHTML = `H:${Math.round(celciusTempHigh)}°C`;
 }
 
 let celsiusTemperature = null;
