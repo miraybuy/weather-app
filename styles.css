@@ -11,7 +11,7 @@
 }
 .app-wrapper {
   display: block;
-  max-width: 490px;
+  max-width: 600px;
   margin: 50px auto;
 }
 .weather-app {
@@ -81,8 +81,8 @@ h3 {
   padding: 10px 10px;
   font-size: 45px;
 }
-.partially-cloud {
-  font-size: 70px;
+#icon {
+  font-size: 50px;
 }
 .forecast-day {
   text-align: right;
@@ -100,6 +100,9 @@ h3 {
   font-size: 15px;
   padding: 5px 0;
 }
+#weatherDescription::first-letter {
+  text-transform: capitalize;
+}
 
 .forecast-high,
 .forecast-low {
@@ -107,4 +110,23 @@ h3 {
 }
 #currentTime {
   font-size: 20px;
+}
+#currentDegree {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+.units {
+  position: relative;
+  font-size: 15px;
+  top: -34px;
+}
+.current-weather .active {
+  color: rgb(35, 35, 35);
+  cursor: default;
+  text-decoration: none;
+}
+
+.current-weather.active:hover {
+  text-decoration: none;
 }
