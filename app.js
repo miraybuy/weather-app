@@ -71,9 +71,9 @@ function displayForecast(response) {
             <div class="forecast-low">${Math.round(forecastDay.temp.min)}°</div>
           </div>
           <div class="col-4">
-           <img  class="forecast-icon" src="http://openweathermap.org/img/wn/${
+           <img  class="float-left forecast-icon" src="http://openweathermap.org/img/wn/${
              forecastDay.weather[0].icon
-           }@2x.png"  alt="" width="65"/>         
+           }@2x.png"  alt="" width="67"/>         
             </div>
          </div>  
 `;
@@ -96,15 +96,15 @@ function showWeather(response) {
   document.querySelector("#currentDegree").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#todaysHigh").innerHTML = `H:${Math.round(
+  document.querySelector("#todaysHigh").innerHTML = `${Math.round(
     response.data.main.temp_max
-  )}°C`;
-  document.querySelector("#todaysLow").innerHTML = `L:${Math.round(
+  )}°`;
+  document.querySelector("#todaysLow").innerHTML = `${Math.round(
     response.data.main.temp_min
-  )}°C`;
+  )}°`;
   document.querySelector("#feelsLike").innerHTML = `${Math.round(
     response.data.main.feels_like
-  )}°C`;
+  )}°`;
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
@@ -134,6 +134,7 @@ function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
   celciusTempLow = response.data.main.temp_min;
   celciusTempHigh = response.data.main.temp_max;
+  celciusTempFeelsLike = response.data.main.feels_like;
 }
 
 function searchCity(city) {
@@ -174,6 +175,7 @@ function displayFahrenheitTemperature(event) {
   let temperatureElement = document.querySelector("#currentDegree");
   let todaysLow = document.querySelector("#todaysLow");
   let todaysHigh = document.querySelector("#todaysHigh");
+  let todaysFeelsLike = document.querySelector("#feelsLike");
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
@@ -181,11 +183,13 @@ function displayFahrenheitTemperature(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let fahrenheitHigh = (celciusTempHigh * 9) / 5 + 32;
   let fahrenheitLow = (celciusTempLow * 9) / 5 + 32;
+  let fahrenheitFeelsLike = (celciusTempFeelsLike * 9) / 5 + 32;
 
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
-  todaysHigh.innerHTML = `H:${Math.round(fahrenheitHigh)}°F`;
-  todaysLow.innerHTML = `L:${Math.round(fahrenheitLow)}°F`;
+  todaysHigh.innerHTML = `${Math.round(fahrenheitHigh)}°`;
+  todaysLow.innerHTML = `${Math.round(fahrenheitLow)}°`;
+  todaysFeelsLike.innerHTML = `${Math.round(fahrenheitFeelsLike)}°`;
 }
 
 function displayCelsiusTemperature(event) {
@@ -197,9 +201,11 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#currentDegree");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   let todaysLow = document.querySelector("#todaysLow");
-  todaysLow.innerHTML = `L:${Math.round(celciusTempLow)}°C`;
+  todaysLow.innerHTML = `${Math.round(celciusTempLow)}°`;
   let todaysHigh = document.querySelector("#todaysHigh");
-  todaysHigh.innerHTML = `H:${Math.round(celciusTempHigh)}°C`;
+  todaysHigh.innerHTML = `${Math.round(celciusTempHigh)}°`;
+  let todaysFeelsLike = document.querySelector("#feelsLike");
+  todaysFeelsLike.innerHTML = `${Math.round(celciusTempFeelsLike)}°`;
 }
 
 let celsiusTemperature = null;

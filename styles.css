@@ -11,7 +11,7 @@
 }
 .app-wrapper {
   display: block;
-  max-width: 520px;
+  max-width: 500px;
   margin: 30px auto;
 }
 .weather-app {
@@ -53,9 +53,10 @@
   padding: 50px, 0;
 }
 .forecast-container {
-  background-color: rgb(123, 119, 255, 0.3);
-  margin: 7px;
-  border-radius: 15px;
+  border: 1px solid rgb(123, 119, 255, 0.9);
+  background-color: rgb(123, 119, 255, 0.2);
+  margin: 5px;
+  border-radius: 10px;
 }
 ul {
   list-style: none;
@@ -68,6 +69,9 @@ li {
 h3 {
   font-size: 20px;
 }
+small {
+  color: aliceblue;
+}
 .forecast-low,
 #todaysLow {
   color: rgb(52, 91, 99);
@@ -75,6 +79,10 @@ h3 {
 
 #icon {
   width: 100px;
+}
+.forecast-icon {
+  position: relative;
+  left: -20px;
 }
 
 .forecast-day {
