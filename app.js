@@ -38,6 +38,59 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let day = date.getDay();
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#daily-forecast");
+
+  let forecastHTML = ` <div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="row forecast-container">
+          <div class="col-4 forecast-day"><p > ${formatDay(
+            forecastDay.dt
+          )}</p></div>
+          <div class="col-4 ">
+            <div class="forecast-high">${Math.round(
+              forecastDay.temp.max
+            )}°</div>
+            <div class="forecast-low">${Math.round(forecastDay.temp.min)}°</div>
+          </div>
+          <div class="col-4">
+           <img  class="forecast-icon" src="http://openweathermap.org/img/wn/${
+             forecastDay.weather[0].icon
+           }@2x.png"  alt="" width="65"/>         
+            </div>
+         </div>  
+`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "2bd326a60dc89a53287e446e819664df";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   document.querySelector("#currentLocation").innerHTML = response.data.name;
   document.querySelector("#currentDegree").innerHTML = Math.round(
@@ -75,6 +128,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 
   celsiusTemperature = response.data.main.temp;
   celciusTempLow = response.data.main.temp_min;

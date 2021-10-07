@@ -11,13 +11,12 @@
 }
 .app-wrapper {
   display: block;
-  max-width: 600px;
-  margin: 50px auto;
+  max-width: 520px;
+  margin: 30px auto;
 }
 .weather-app {
   display: block;
   padding: 20px;
-  margin: 5px auto;
   border-radius: 15px;
   background: rgb(212, 236, 221, 0.8);
   background-size: cover;
@@ -43,23 +42,20 @@
   background-color: rgb(113, 111, 129);
   transition: all 200ms ease-in-out;
 }
-
+.today {
+  padding-right: 15px;
+}
 .locationArrow {
   font-size: 15px;
 }
-.dailyForecast {
+#daily-forecast {
   text-align: center;
-  padding: 40px 0;
+  padding: 50px, 0;
 }
-.day1,
-.day2,
-.day3,
-.day4,
-.day5 {
-  background-color: rgb(123, 119, 255, 0.6);
-  margin: 5px;
+.forecast-container {
+  background-color: rgb(123, 119, 255, 0.3);
+  margin: 7px;
   border-radius: 15px;
-  padding: 0;
 }
 ul {
   list-style: none;
@@ -76,26 +72,16 @@ h3 {
 #todaysLow {
   color: rgb(52, 91, 99);
 }
-.sun-icon,
-.cloud-rain-icon {
-  padding: 10px 10px;
-  font-size: 45px;
-}
+
 #icon {
-  font-size: 50px;
+  width: 100px;
 }
+
 .forecast-day {
-  text-align: right;
   padding: 10px 10px 0 0;
-  font-size: 23px;
+  font-size: 25px;
 }
-.sun-icon,
-.partially-cloud {
-  color: rgb(255, 201, 60);
-}
-.cloud-rain-icon {
-  color: rgb(113, 111, 129);
-}
+
 #weatherDescription {
   font-size: 15px;
   padding: 5px 0;
