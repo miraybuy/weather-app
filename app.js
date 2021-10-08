@@ -67,8 +67,10 @@ function displayForecast(response) {
           <div class="col-4 ">
             <div class="forecast-high">${Math.round(
               forecastDay.temp.max
-            )}°</div>
-            <div class="forecast-low">${Math.round(forecastDay.temp.min)}°</div>
+            )}°C</div>
+            <div class="forecast-low">${Math.round(
+              forecastDay.temp.min
+            )}°C</div>
           </div>
           <div class="col-4">
            <img  class="float-left forecast-icon" src="http://openweathermap.org/img/wn/${
