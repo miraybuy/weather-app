@@ -11,7 +11,7 @@
 }
 .app-wrapper {
   display: block;
-  max-width: 530px;
+  max-width: 500px;
   margin: 30px auto;
 }
 .weather-app {
@@ -87,7 +87,7 @@ small {
 
 .forecast-day {
   padding: 10px 10px 0 0;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 #weatherDescription {
@@ -106,7 +106,7 @@ small {
   font-size: 20px;
 }
 #currentDegree {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 1;
   font-weight: 400;
 }
