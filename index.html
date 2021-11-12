@@ -4,113 +4,129 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>Weather App</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/bc8f0455ee.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="styles.css" />
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/bc8f0455ee.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-</head>
+  <body>
+    <video
+      id="background-video"
+      autoplay
+      loop
+      muted
+      poster="Blurred lights.mp4"
+    >
+      <source src="Blurred lights.mp4" type="video/mp4" />
+    </video>
+    <div class="container">
+      <div class="app-wrapper">
+        <div class="weather-app">
+          <div class="row">
+            <div class="col citySearch">
+              <form id="searchForm">
+                <input
+                  type="text"
+                  placeholder="Enter a city"
+                  id="citySearchbar"
+                  autofocus="on"
+                  autocomplete="off"
+                />
 
-<body>
-  <video id="background-video" autoplay loop muted poster="Blurred lights.mp4">
-  <source src="Blurred lights.mp4" type="video/mp4">
-</video>
-<div class="container">
-  <div class="app-wrapper">
-    <div class="weather-app">
-   
-    <div class="row ">
+                <button type="submit" class="btn btn-primary searchButton">
+                  <i class="fas fa-search-location location-icon"></i>
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="locationButton"
+                >
+                  <i class="fas fa-street-view"></i>
+                </button>
+              </form>
+            </div>
 
-      <div class="col citySearch">
-        <form id="searchForm">
-          <input type="text" placeholder="Enter a city" id="citySearchbar" autofocus="on"
-                autocomplete="off" />
+            <div class="row">
+              <div class="col-7 today">
+                <div class="current-weather">
+                  <h1>
+                    <div id="currentTime"></div>
 
-          <button type="submit" class="btn btn-primary searchButton">
-            <i class="fas fa-search-location location-icon"></i>
-          </button>
-          <button type="submit" class="btn btn-primary" id="locationButton">
-            <i class="fas fa-street-view"></i>
-          </button>
-       </div>
-              
-        </form>
-       
-   
+                    <span id="currentLocation"></span>
+                    <div class="clear-fix current-temperature">
+                      <img src="" alt="" id="icon" />
+                      <span id="currentDegree"> 26</span>
+                      <span class="float-left units"
+                        ><a href="#" id="celsius-link" class="active">°C</a> |
+                        <a href="#" id="fahrenheit-link">°F</a>
+                      </span>
+                    </div>
 
-    
+                    <h3>
+                      <div id="weatherDescription"></div>
+                      <span id="todaysHigh"></span> |
+                      <span id="todaysLow"></span>
+                    </h3>
+                  </h1>
+                </div>
+                <hr size="4" color="grey" width="90%" />
 
-    <div class="row">
-      <div class="col-7 today">
-
-        <div class="current-weather">
-          <h1>
-            <div id="currentTime">  </div>
-            
-            <span id="currentLocation"></span>
-            <div class="clear-fix current-temperature"><img src=""  alt="" id="icon">  <span id="currentDegree">   26</span> 
-              <span class="float-left units "><a href="#" id="celsius-link" class="active">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a> </span>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="info">
+                      <ul>
+                        <li>Feels like</li>
+                        <li>Humidity</li>
+                        <li>Wind</li>
+                        <li>Pressure</li>
+                        <li>Sunrise</li>
+                        <li>Sunset</li>
+                      </ul>
+                    </div>
                   </div>
-    
+                  <div class="col-6">
+                    <ul>
+                      <li><span id="feelsLike">24°C</span></li>
+                      <li><span id="humidity">52%</span></li>
+                      <li><span id="wind"> 2 km/hr</span></li>
+                      <li><span id="pressure">0 cm</span></li>
+                      <li><span id="sunrise">07:18</span></li>
+                      <li><span id="sunset">19:24</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-            <h3>
-              
-              <div id="weatherDescription"> </div>
-              <span id="todaysHigh"></span> | <span id="todaysLow"></span>
-            </h3>
-          </h1>
+              <div class="col-5" id="daily-forecast"></div>
+            </div>
+          </div>
         </div>
-                <hr size= "4" color="grey" width="90%">
-
-                  <div class="row">
-                    <div class="col-6">
-        <div class="info">
-          <ul>
-            <li>Feels like </li>
-         <li>Humidity</li>
-            <li>Wind</li>
-               <li>Pressure</li>
-            <li>Sunrise</li>
-            <li>Sunset</li>
-          </ul>
-        </div>
+        <small>
+          <a href="https://github.com/miraybuy/weather-app" target="_blank"
+            >Open-source code</a
+          >
+          by Miray Büyükkaray
+        </small>
       </div>
-        <div class="col-6">
-         <ul>
-            <li><span id="feelsLike">24°C</span> </li>
-             <li><span id="humidity">52%</span></li>
-             <li><span id="wind"> 2 km/hr</span></li>
-          <li> <span id="pressure">0 cm</span></li>
-            <li><span id="sunrise">07:18</span></li>
-            <li><span id="sunset">19:24</span></li>
-          </ul>
-
-        </div>
     </div>
-  </div>
-
-
-      <div class="col-5  " id="daily-forecast"></div>
-       
-       
-         
-    </div>
-  </div>
- </div> 
- <small>
-    <a href="https://github.com/miraybuy/weather-app" target="_blank">Open-source code</a> by Miray Büyükkaray
-</small>
-  </div>
-  
-</div>
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
